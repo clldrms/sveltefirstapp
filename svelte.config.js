@@ -27,6 +27,9 @@ const config = {
         browser: {
             router: false,
             hydrate: true
+        },
+        prerender: {
+            default: true
         }
         /*
         If you need to serve your file from a sub directory
