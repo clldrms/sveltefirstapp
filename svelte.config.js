@@ -1,6 +1,6 @@
 //import adapter from '@sveltejs/adapter-auto';
-
 // @type {import('@sveltejs/kit').Config}
+
 /*
 const config = {
 	kit: {
@@ -12,6 +12,8 @@ export default config;
 */
 
 import adapter from '@sveltejs/adapter-static';
+
+// @type {import('@sveltejs/kit').Config}
 const config = {
     kit: {
         // hydrate the <div id="svelte"> element in src/app.html
@@ -22,6 +24,10 @@ const config = {
             assets: 'build',
             fallback: null
         }),
+        browser: {
+            router: false,
+            hydrate: true
+        }
         /*
         If you need to serve your file from a sub directory
         paths: {

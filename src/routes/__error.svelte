@@ -2,7 +2,7 @@
   export function load({ error, status }) {
       return {
           props: {
-              title: status // `${status}: ${error.message}`
+              title: `${status}: ${error.message}`
           }
       };
   }

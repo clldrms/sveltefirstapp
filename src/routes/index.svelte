@@ -1,7 +1,7 @@
-<script context="module">
-  export const router = false;
-  export const hydrate = false;
-  export const prerender = true;
+<script>
+  const alert = () => {
+    window.alert('hi');
+  }
 </script>
 
 <svelte:head>
@@ -9,3 +9,5 @@
 </svelte:head>
 
 <h1>Home</h1>
+
+<button on:click="{alert}">alert</button>

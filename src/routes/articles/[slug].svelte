@@ -1,26 +1,28 @@
 <script context="module">
-  export const router = false;
-  export const hydrate = false;
-  export const prerender = true;
+  //import { fetchArticleBySlug } from '../../stores/articlestore'
 
-  import { article, fetchArticleBySlug } from '../../stores/articlestore'
-
-  export async function load({ params }) {
-    await fetchArticleBySlug(params.slug)
+  /** @type {import('./[slug]').Load} */
+  export async function load({ params, fetch }) {
+    const res = await fetch('https://demo.restback.io/api/articles/' + params.slug)
+    const data = await res.json()
+    console.log(data.result);
+    //let article = await fetchArticleBySlug(params.slug)
     return {
-
+      props: {
+        article: data.result
+      }
     }
   }
 </script>
 
 <script>
-  console.log($article)
+  export let article
 </script>
 
 <svelte:head>
-  <title>Article Detay - { $article.title }</title>
+  <title>Article Detay - { article.title }</title>
 </svelte:head>
 
-<h1>Article Detay - { $article.title }</h1>
+<h1>Article Detay - { article.title }</h1>
 
-<div>{ @html $article.htmlContent }</div>
+<div>{ @html article.htmlContent }</div>

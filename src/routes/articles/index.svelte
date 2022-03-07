@@ -1,8 +1,4 @@
 <script context="module">
-  export const router = false;
-  export const hydrate = false;
-  export const prerender = true;
-
   import { articles, fetchArticles } from '../../stores/articlestore'
 
   export async function load() {

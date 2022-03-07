@@ -10,6 +10,7 @@ export const fetchArticles = async () => {
 
     articles.set(data.result.items)
     articlesCount.set(data.result.totalCount)
+    return data.result.items
 }
 
 export const fetchArticleBySlug = async (slug) => {
@@ -17,4 +18,5 @@ export const fetchArticleBySlug = async (slug) => {
     const data = await res.json()
 
     article.set(data.result)
+    return data.result
 }
