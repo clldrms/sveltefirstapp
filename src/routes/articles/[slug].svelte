@@ -1,12 +1,9 @@
 <script context="module">
-  //import { fetchArticleBySlug } from '../../stores/articlestore'
-
   /** @type {import('./[slug]').Load} */
   export async function load({ params, fetch }) {
     const res = await fetch('https://demo.restback.io/api/articles/' + params.slug)
     const data = await res.json()
     console.log(data.result);
-    //let article = await fetchArticleBySlug(params.slug)
     return {
       props: {
         article: data.result
