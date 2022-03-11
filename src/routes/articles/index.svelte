@@ -15,6 +15,13 @@
 
 <script>
   export let articles
+
+  import { fetchArticles } from '../../stores/articlestore'
+
+  const testing = async () => {
+    let result = await fetchArticles()
+    console.log(result);
+  }
 </script>
 
 <svelte:head>
@@ -28,3 +35,5 @@
     <h2>{ article.title }</h2>
 </a>
 {/each}
+
+<button on:click="{testing}">testing</button>
